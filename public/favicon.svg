@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Campus Market">
+  <rect width="64" height="64" rx="14" fill="#2F6FED" />
+  <path d="M20 42V22h5.4v15.4h8.8V42H20Z" fill="#FFFFFF" opacity="0.55" />
+  <path d="M36 42V22h5.2l4.2 7.6 4.2-7.6H54v20h-5.4V30.8l-3.2 5.6h-4L38.2 31v11H36Z" fill="#FFFFFF" />
+</svg>
