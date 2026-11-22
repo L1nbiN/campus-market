@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Campus Market 封面 03">
+  <defs>
+    <linearGradient id="bg03" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ECF9F2" />
+      <stop offset="1" stop-color="#C9EDDC" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#bg03)" />
+  <path d="M460 70 L580 190 L460 310 L340 190 Z" fill="#1F9D6B" opacity="0.14" />
+  <circle cx="460" cy="190" r="30" fill="#1F9D6B" opacity="0.32" />
+  <rect x="64" y="330" width="250" height="14" rx="7" fill="#1F9D6B" opacity="0.22" />
+  <rect x="64" y="360" width="160" height="14" rx="7" fill="#1F9D6B" opacity="0.12" />
+  <text x="64" y="208" font-family="Segoe UI, Arial, sans-serif" font-size="46" font-weight="700" fill="#1D4E3C" letter-spacing="3">CAMPUS</text>
+  <text x="64" y="258" font-family="Segoe UI, Arial, sans-serif" font-size="46" font-weight="700" fill="#1D4E3C" letter-spacing="3">MARKET</text>
+  <text x="66" y="304" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#357D62" letter-spacing="7">SECOND HAND</text>
+  <text x="584" y="440" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="84" font-weight="700" fill="#1F9D6B" opacity="0.16">03</text>
+</svg>
