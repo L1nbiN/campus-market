@@ -1,0 +1,452 @@
+/* ==================================================================
+   校园集市 · 全局设计变量与基础样式
+   主色 / 圆角 / 阴影 / 文本层级统一在这里维护
+   ================================================================== */
+
+:root {
+  /* 品牌色 */
+  --cm-primary: #2f6fed;
+  --cm-primary-hover: #1f5fd8;
+  --cm-primary-active: #1b50b8;
+  --cm-primary-soft: #eaf1fe;
+  --cm-primary-soft-2: #f4f8ff;
+
+  /* 功能色 */
+  --cm-price: #f05b3c;
+  --cm-success: #1f9d6b;
+  --cm-warning: #e0873a;
+  --cm-danger: #e05252;
+
+  /* 中性色 */
+  --cm-bg: #f6f8fc;
+  --cm-surface: #ffffff;
+  --cm-text: #1b2437;
+  --cm-text-secondary: #5a6478;
+  --cm-text-muted: #8b94a7;
+  --cm-border: #e7ebf3;
+  --cm-border-strong: #d8dfeb;
+
+  /* 圆角与阴影 */
+  --cm-radius-sm: 8px;
+  --cm-radius: 12px;
+  --cm-radius-lg: 18px;
+  --cm-shadow-xs: 0 1px 2px rgba(22, 34, 64, 0.04);
+  --cm-shadow: 0 4px 16px rgba(22, 34, 64, 0.06);
+  --cm-shadow-hover: 0 14px 32px rgba(22, 34, 64, 0.12);
+
+  /* 布局 */
+  --cm-container: 1200px;
+  --cm-header-height: 68px;
+  --cm-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Element Plus 主题变量覆盖 */
+  --el-color-primary: #2f6fed;
+  --el-color-primary-light-3: #6d9af4;
+  --el-color-primary-light-5: #96b7f7;
+  --el-color-primary-light-7: #c0d4fa;
+  --el-color-primary-light-8: #d5e2fc;
+  --el-color-primary-light-9: #eaf1fe;
+  --el-color-primary-dark-2: #265ec9;
+  --el-border-radius-base: 8px;
+  --el-border-radius-small: 6px;
+  --el-font-family: var(--cm-font);
+  --el-text-color-primary: #1b2437;
+  --el-text-color-regular: #5a6478;
+  --el-text-color-secondary: #8b94a7;
+  --el-border-color: #e7ebf3;
+  --el-border-color-light: #eef1f6;
+  --el-fill-color-blank: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--cm-bg);
+  color: var(--cm-text);
+  font-family: var(--cm-font);
+  font-size: 14px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+::selection {
+  background: rgba(47, 111, 237, 0.18);
+}
+
+:focus-visible {
+  outline: 2px solid var(--cm-primary);
+  outline-offset: 2px;
+}
+
+/* ---------- 布局工具 ---------- */
+.container {
+  width: min(var(--cm-container), calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.page {
+  padding: 32px 0 72px;
+}
+
+/* ---------- 品牌标识 ---------- */
+.brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: 11px;
+  background: var(--cm-primary);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  box-shadow: 0 6px 14px rgba(47, 111, 237, 0.24);
+}
+
+.brand-mark--lg {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  font-size: 15px;
+}
+
+/* ---------- 商品网格：>1200 4 列 / >=768 3 列 / <768 2 列 ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+/* ---------- 通用区块标题 ---------- */
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.section-head h2 {
+  font-size: 22px;
+  line-height: 1.3;
+  letter-spacing: -0.2px;
+}
+
+.section-head p {
+  margin-top: 4px;
+  color: var(--cm-text-muted);
+  font-size: 13px;
+}
+
+.section-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+  color: var(--cm-primary);
+  font-size: 13px;
+  font-weight: 500;
+  transition: gap 0.2s ease;
+}
+
+.section-link:hover {
+  gap: 8px;
+}
+
+/* ---------- 登录 / 注册共享样式 ---------- */
+.auth-page {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - var(--cm-header-height) - 260px);
+  padding: 56px 20px 80px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(47, 111, 237, 0.08), transparent 34%),
+    radial-gradient(circle at 88% 82%, rgba(47, 111, 237, 0.06), transparent 30%),
+    var(--cm-bg);
+}
+
+.auth-card {
+  position: relative;
+  z-index: 1;
+  width: min(432px, 100%);
+  padding: 40px;
+  background: var(--cm-surface);
+  border: 1px solid var(--cm-border);
+  border-radius: var(--cm-radius-lg);
+  box-shadow: 0 20px 48px rgba(22, 34, 64, 0.1);
+}
+
+.auth-card--wide {
+  width: min(500px, 100%);
+}
+
+.auth-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 26px;
+  color: var(--cm-text);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.auth-card h1 {
+  font-size: 26px;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+
+.auth-subtitle {
+  margin-top: 8px;
+  color: var(--cm-text-muted);
+  font-size: 13px;
+}
+
+.auth-card .el-form {
+  margin-top: 26px;
+}
+
+.auth-submit.el-button {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.auth-switch {
+  margin-top: 22px;
+  color: var(--cm-text-muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+.auth-switch a {
+  color: var(--cm-primary);
+  font-weight: 500;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+.demo-box {
+  margin-top: 24px;
+  padding: 14px 16px;
+  border: 1px dashed var(--cm-border-strong);
+  border-radius: var(--cm-radius);
+  background: var(--cm-primary-soft-2);
+}
+
+.demo-box__title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--cm-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.demo-box__list {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.demo-box__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--cm-text-muted);
+}
+
+.demo-box__item code {
+  color: var(--cm-text);
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+}
+
+.demo-box .el-button {
+  flex: none;
+}
+
+/* ---------- Element Plus 细节微调 ---------- */
+.el-button {
+  font-weight: 500;
+}
+
+.el-button--large {
+  border-radius: 10px;
+}
+
+.el-input__wrapper {
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px var(--cm-border) inset;
+}
+
+.el-input__wrapper:hover {
+  box-shadow: 0 0 0 1px var(--cm-border-strong) inset;
+}
+
+.el-input__wrapper.is-focus {
+  box-shadow: 0 0 0 1px var(--cm-primary) inset;
+}
+
+.el-textarea__inner {
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px var(--cm-border) inset;
+}
+
+.el-select__wrapper {
+  border-radius: 10px;
+}
+
+.el-form-item__label {
+  color: var(--cm-text);
+  font-weight: 600;
+}
+
+.el-message-box {
+  border-radius: 16px;
+}
+
+.el-message {
+  border-radius: 10px;
+}
+
+.el-dropdown-menu {
+  padding: 6px;
+}
+
+.el-dropdown-menu__item {
+  border-radius: 8px;
+  font-size: 13px;
+  padding: 8px 14px;
+}
+
+.el-drawer__header {
+  margin-bottom: 0;
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--cm-border);
+  color: var(--cm-text);
+  font-weight: 700;
+}
+
+.el-drawer__body {
+  padding: 20px 22px;
+}
+
+.el-pagination.is-background .el-pager li {
+  border-radius: 8px;
+}
+
+.el-pagination.is-background .el-pager li.is-active {
+  background-color: var(--cm-primary);
+}
+
+.el-pagination.is-background .btn-prev,
+.el-pagination.is-background .btn-next {
+  border-radius: 8px;
+}
+
+/* ---------- 无障碍：尊重减少动画设置 ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: calc(100% - 32px);
+  }
+
+  .page {
+    padding: 24px 0 56px;
+  }
+
+  .section-head h2 {
+    font-size: 19px;
+  }
+
+  .auth-page {
+    padding: 32px 16px 56px;
+  }
+
+  .auth-card {
+    padding: 28px 22px;
+  }
+
+  .auth-card h1 {
+    font-size: 23px;
+  }
+}
